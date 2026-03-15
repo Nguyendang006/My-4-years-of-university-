@@ -1,30 +1,19 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
-
-void insertionSort(int a[],int n);
-
 int main(){
-  int n;
-  scanf("%d",&n);
-  int* a = (int*) malloc(n * sizeof(int));
-  for(int i = 1;i <= n;i++){
-    scanf("%d",&a[i]);
-  }
-  insertionSort(a,n);
-  for(int i = 1;i <= n;i++)
-    printf("%d ",a[i]);
+  char s1[100];
+  char s2[100];
+  
+  fgets(s1,sizeof(s1),stdin);
+  s1[strcspn(s1,"\n")] = '\0';
+  fgets(s2,sizeof(s2),stdin);
+  s1[strcspn(s2,"\n")] = '\0';
+  char s3[100] = "hello\t";
+  char s4[] = "world";
+
+  strcat(s1,s2);
+  printf("%s\n",s1);
   return 0;
 }
-
-void insertionSort(int a[],int n){
-  int i, j, last;
-  for(i = 1;i <= n;i++){
-    last = a[i];
-    j = i;
-    while((j > 0) && (a[j-1] > last)){
-      a[j] = a[j-1];
-      j = j - 1;
-    }
-    a[j] = last;
-  }
-}
+  
